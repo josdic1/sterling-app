@@ -1,0 +1,24 @@
+{
+"reservations": [
+    {
+    "id": "r001", 
+    "mid": "m001", 
+    "member": "Allen", 
+    "notes": "allergic to shellfish", 
+    "guests": 4, 
+    "guest_list": []
+},
+    {"id": "r002", "mid": "m002", "member": "Becca", "notes": "birthday celebration", "guests": 2, "guest_list": []},
+    {"id": "r003", "mid": "m003", "member": "Carlos", "notes": "vegetarian options", "guests": 3, "guest_list": []},
+    {"id": "r004", "mid": "m004", "member": "Dana", "notes": "wheelchair accessible table", "guests": 5, "guest_list": []},
+    {"id": "r005", "mid": "m005", "member": "Eli", "notes": "prefers window seat", "guests": 1, "guest_list": []}
+],
+
+"members": [
+    {"id": "m001", "member": "Allen"},
+    {"id": "m001", "member": "Becca"},
+    {"id": "m003", "member": "Carlos"},
+    {"id": "m004", "member": "Dana"},
+    {"id": "m005", "member": "Eli"}
+]
+}
