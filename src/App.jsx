@@ -12,9 +12,11 @@ function App() {
       <NavBar />
       </header>
           <main>
+          <MemberProvider>
 <ReservationProvider>
-<Outlet />
+  <Outlet />
 </ReservationProvider>
+</MemberProvider>
       </main>
     </>
   )
