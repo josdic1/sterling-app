@@ -28,7 +28,7 @@ return (
 <td>{reservation.member}</td>
 <td>{reservation.guests}</td>
 <td>{reservation.notes}</td>
-<td>{reservation.guest_list?.length ? reservation.guest_list : reservation.id}</td>
+
 <td>
   <button type="button" onClick={onClick} id={reservation.id} name="view" className="btn red">
     👓

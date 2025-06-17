@@ -18,7 +18,6 @@ return (
                 <th>NAME</th>
                 <th>GUESTS</th>
                 <th>NOTES</th>
-                <th>GUEST_LIST</th>
                 <th>VIEW</th>
                 <th>EDIT</th>
                 <th>DELETE</th>
