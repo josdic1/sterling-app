@@ -26,6 +26,7 @@ return (
 <tr id={reservation.id}>
 <td>{reservation.mid}</td>
 <td>{reservation.member}</td>
+<td>{reservation.arrival}</td>
 <td>{reservation.guests}</td>
 <td>{reservation.notes}</td>
 

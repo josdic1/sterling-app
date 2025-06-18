@@ -16,6 +16,7 @@ return (
             <tr>
                 <th>MEMBER ID</th>
                 <th>NAME</th>
+                <th>ARRIVAL</th>
                 <th>GUESTS</th>
                 <th>NOTES</th>
                 <th>VIEW</th>

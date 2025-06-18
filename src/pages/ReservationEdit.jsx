@@ -9,6 +9,7 @@ function ReservationEdit() {
             id: '',
             mid: '',
             member: '',
+            arrival: '',
             guests: 0,
             notes: '',
             guest_list: [],
@@ -51,6 +52,7 @@ function ReservationEdit() {
             member: '',
             guests: 0,
             notes: '',
+            arrival: '',
             guest_list: []
         })
     }
@@ -68,6 +70,11 @@ return (
 
                 <label htmlFor="member">MEMBER_NAME: </label>
                 <input type="text" name="member" id="member" onChange={onFormChange} value={match?.member || ''} placeholder="Member name..." />
+
+                <label htmlFor="arrival">ARRIVAL: </label>
+                <input type="datetime-local" name="arrival" id="arrival" onChange={onFormChange} value={match.arrival ? match.arrival.slice(0, 16) : ''}        min="2025-06-16T09:00"
+       max="2025-12-31T22:00"
+       step="900"/> 
 
                 <label htmlFor="guests">GUEST COUNT (incl. member): </label>
                 <input type="number" name="guests" id="guests" onChange={onFormChange} value={match?.guests || 0} placeholder="Total party #..." />

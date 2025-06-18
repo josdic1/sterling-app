@@ -1,5 +1,5 @@
-{
-  "reservations": [
+
+reservations = [
     {
       "mid": "m001",
       "member": "Allen",
@@ -46,7 +46,7 @@
       "id": "ba7e"
     },
     {
-      "mid": "m002",
+      "mid": "m003",
       "member": "Becca",
       "guests": "1",
       "notes": "Dining alone",
@@ -81,8 +81,9 @@
       "arrival": "2025-06-20T10:45",
       "guest_list": "Moonshaker"
     }
-  ],
-  "members": [
+
+  ]
+members = [
     {
       "id": "m001",
       "member": "Allen"
@@ -104,4 +105,6 @@
       "member": "Eli"
     }
   ]
-}
+
+if __name__ == "__main__":
+    print(f"✅ Loaded {len(reservations)} reservations and {len(members)} members")
