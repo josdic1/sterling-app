@@ -22,7 +22,9 @@ const onFormChange = (e) => {
 const onSubmit = (e) => {
     e.preventDefault()
     const newMem = {
-        ...formData
+        ...formData,
+        login: formData.member.toLocaleLowerCase(),
+        password: formData.member.toLocaleLowerCase()
     }
     handleNew(newMem)
     onCancel()
@@ -44,6 +46,7 @@ return (
 <form onSubmit={onSubmit}>
 <label htmlFor="member"> NEW Member </label>
 <input type="text" name="member" id="member" placeholder="Member name..." onChange={onFormChange} value={formData.member}/>
+
 <button type="submit"> Submit </button>
 </form>
 </>

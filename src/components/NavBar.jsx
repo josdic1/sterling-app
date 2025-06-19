@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom"
+
 import viteLogo from '/vite.svg'
 
 function NavBar() {
+
+
 
 return (
 <>
@@ -11,6 +14,7 @@ return (
         <NavLink to="/reservations/new"> New Reservation |</NavLink>
         <NavLink to="/members"> Members |</NavLink>
         <NavLink to="/calendar"> Calendar |</NavLink>
+         <NavLink to="/login"> Login </NavLink>
 </nav>
 </>
 )}

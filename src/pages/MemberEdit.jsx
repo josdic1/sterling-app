@@ -7,7 +7,9 @@ function MemberEdit() {
 
     const [ formData, setFormData ] = useState({
         id: '',
-        member: ''
+        member: '',
+        login: '',
+        password: ''
     })
 
     const { id } = useParams()
@@ -20,7 +22,9 @@ useEffect(() => {
 
     const updated = {
         id: match.id,
-        member: match.member
+        member: match.member,
+        login: match.login,
+        password: match.password
     }
     setFormData(updated)
 },[id, members])
@@ -53,8 +57,12 @@ const onCancel = () => {
 return (
 <>
 <form onSubmit={onSubmit}>
-<label htmlFor="member"> NEW Member </label>
+<label htmlFor="member"> Member </label>
 <input type="text" name="member" id="member" placeholder="Member name..." onChange={onFormChange} value={formData.member}/>
+<label htmlFor="login"> Login </label>
+<input type="text" name="login" id="login" placeholder="Login..." onChange={onFormChange} value={formData.login}/>
+<label htmlFor="password"> Password </label>
+<input type="password" name="password" id="password" placeholder="Password..." onChange={onFormChange} value={formData.password}/>
 <button type="submit"> Update </button>
 </form>
 </>
