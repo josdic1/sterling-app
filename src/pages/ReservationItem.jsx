@@ -11,8 +11,9 @@ function ReservationItem() {
         member: '',
         guests: 0,
         arrival: '',
+        room: "",
         notes: '',
-        guest_list: []
+        guest_array: []
     })
 
     const { id } = useParams()
@@ -33,6 +34,7 @@ return (
 <h5>{match?.mid}</h5>
 <h5>{match?.member}</h5>
 <h5>{match?.guests}</h5>
+<h5>{match?.room}</h5>
 <h5>
   {match.arrival
     ? new Date(match.arrival).toLocaleString('en-US', {
@@ -42,7 +44,7 @@ return (
     : 'No arrival time'}
 </h5>
 <h5>{match?.notes}</h5>
-<h5>{match?.guest_list}</h5>
+<h5>{match?.guest_array?.join(", ")}</h5>
 </>
 )}
 

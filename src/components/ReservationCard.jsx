@@ -24,11 +24,16 @@ function ReservationCard({ reservation, onDeleteClick }) {
 return (
 <>
 <tr id={reservation.id}>
-<td>{reservation.mid}</td>
-<td>{reservation.member}</td>
-<td>{reservation.arrival}</td>
+<td>{`${reservation.member} (${reservation.mid})`}</td>
+<td>{new Date(reservation.arrival).toLocaleString([], {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit'
+})}</td>
 <td>{reservation.guests}</td>
-<td>{reservation.notes}</td>
+<td>{reservation.room}</td>
 
 <td>
   <button type="button" onClick={onClick} id={reservation.id} name="view" className="btn red">

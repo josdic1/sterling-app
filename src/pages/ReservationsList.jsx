@@ -5,20 +5,23 @@ import ReservationCard from "../components/ReservationCard"
 function ReservationsList() {
     const { reservations, handleDelete } = useContext(ReservationContext)
 
-    const reservationList = reservations.map(r => (
-        <ReservationCard key={r.id} reservation={r} onDeleteClick={handleDelete}/>
-    ))
+const sortedReservations = [...reservations].sort(
+  (a, b) => new Date(a.arrival) - new Date(b.arrival)
+);
+
+const reservationList = sortedReservations.map(r => (
+  <ReservationCard key={r.id} reservation={r} onDeleteClick={handleDelete} />
+));
 
 return (
 <>
     <table>
         <thead>
             <tr>
-                <th>MEMBER ID</th>
                 <th>NAME</th>
                 <th>ARRIVAL</th>
                 <th>GUESTS</th>
-                <th>NOTES</th>
+                <th>ROOM</th>
                 <th>VIEW</th>
                 <th>EDIT</th>
                 <th>DELETE</th>

@@ -104,7 +104,7 @@ class Reservation:
     @staticmethod
     def comma_tice(my_str, what_to_find, what_goes_in_its_place):
         string = my_str.replace(what_to_find, what_goes_in_its_place)
-        return string
+        return string 
 
         
 
