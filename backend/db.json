@@ -50,6 +50,21 @@
         "Sarah",
         "Aubrey"
       ]
+    },
+    {
+      "id": "b627",
+      "mid": "109d",
+      "member": "Demi",
+      "guests": 5,
+      "notes": "Kosher",
+      "room": "room-a",
+      "arrival": "7/18/2025, 4:15:00 PM",
+      "guest_array": [
+        "Josh",
+        "Dorrie",
+        "Abba",
+        "Jill"
+      ]
     }
   ],
   "members": [
@@ -57,26 +72,26 @@
       "id": "79dd",
       "member": "Jon",
       "login": "jon",
-      "password": "jon"
+      "password": ""
     },
     {
       "id": "aa0a",
       "member": "Josh",
       "login": "josh",
-      "password": "josh"
+      "password": ""
     },
     {
       "id": "1b54",
       "member": "Dorrie",
       "login": "dorrie",
-      "password": "dorrie"
+      "password": ""
+    },
+    {
+      "id": "109d",
+      "member": "Demi",
+      "login": "demi",
+      "password": "demi"
     }
   ],
-    "currentUser": [
-    {
-      "id": "",
-      "uid": "",
-      "member": ""
-    }
-  ]
+  "currentUser": {}
 }

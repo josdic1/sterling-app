@@ -7,15 +7,15 @@ function CurrentUserProvider({children}) {
       const [ currentUser, setCurrentUser ] = useState({
         id: "",
         uid: "",
-        member: ""
+        member: "",
+        password: ""
       })  
 
- const loggedIn = currentUser?.uid ? true : false
+ const loggedIn = currentUser?.id ? true : false
 
  useEffect(() => {
     fetchCurrentUser()
-},[])
-
+ },[])
 
 async function fetchCurrentUser() {
     try {
@@ -32,7 +32,7 @@ async function fetchCurrentUser() {
 return (
 <>
 <CurrentUserContext.Provider
-    value={{ currentUser, setCurrentUser, loggedIn }}
+    value={{ loggedIn, currentUser, setCurrentUser }}
 >
     {children}
 </CurrentUserContext.Provider>

@@ -1,7 +1,7 @@
+import { Navigate } from "react-router-dom"
 import App from "./App.jsx"
 import CalendarView from "./pages/CalendarView.jsx"
 import Error from "./pages/Error.jsx"
-import Login from "./pages/Login.jsx"
 import MemberList from "./pages/MemberList.jsx"
 import MemberItem from "./pages/MemberItem.jsx"
 import MemberEdit from "./pages/MemberEdit.jsx"
@@ -18,6 +18,10 @@ const routes = [
     element: <App />, 
     errorElement: <Error />, 
     children: [
+      {
+        index: true,
+        element: <Navigate to="/reservations" replace /> 
+      },
       { path: "/reservations", element: <ReservationsList /> },
       { path: "/reservations/new", element: <ReservationForm /> },
       { path: "/reservations/edit/:id", element: <ReservationEdit /> },
@@ -27,7 +31,7 @@ const routes = [
       { path: "/members/edit/:id", element: <MemberEdit /> },
       { path: "/members/view/:id", element: <MemberItem /> },
       { path: "/calendar", element: <CalendarView /> },
-       { path: "/login", element: <Login /> }
+
   ] }
 ]
 
