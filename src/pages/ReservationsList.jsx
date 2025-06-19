@@ -7,52 +7,65 @@ function ReservationsList() {
     const { reservations, handleDelete } = useContext(ReservationContext)
 
 const [filteredList, setFilteredList ] = useState([])
+const [showAll, setShowAll] = useState(false);
+const [activeFilter, setActiveFilter] = useState({
+  memFilter: "all",
+  roomFilter: "all",
+  sortVal: "all"
+});
+useEffect(() => {
+  handleFilter({
+    memFilter: "all",
+    roomFilter: "all",
+    sortVal: "all"
+  });
+}, [reservations, showAll]);
 
 useEffect(() => {
- setFilteredList(reservations)
-},[reservations])
-
+  handleFilter(activeFilter);
+}, [reservations, showAll]);
 
 const reservationData = filteredList.map(res => (
     <ReservationCard key={res.id} reservation={res} handleDelete={handleDelete} />
 ))
 
-
 const handleFilter = (obj) => {
+  setActiveFilter(obj); 
+
   const member = obj.memFilter || "all";
   const room = obj.roomFilter || "all";
-  const sortVal = obj.sortVal || "all"; // 🔥 MISSING
+  const sortVal = obj.sortVal || "all";
 
-const now = new Date();
+  const filtered = reservations.filter(r => {
+    const isUpcoming = new Date(r.arrival) >= new Date();
+    const memMatch = member === "all" || r.member === member;
+    const roomMatch = room === "all" || r.room === room;
+    return (showAll || isUpcoming) && memMatch && roomMatch;
+  });
 
-const filtered = reservations.filter(r => {
-  const isUpcoming = new Date(r.arrival) >= now;
-  const memMatch = member === "all" || r.member === member;
-  const roomMatch = room === "all" || r.room === room;
-  return isUpcoming && memMatch && roomMatch;
-});
-
-  let thisFiltered = [];
+  let thisFiltered = [...filtered];
   if (sortVal === "memAsc") {
-    thisFiltered = [...filtered].sort((a, b) => a.member.localeCompare(b.member));
+    thisFiltered.sort((a, b) => a.member.localeCompare(b.member));
   } else if (sortVal === "memDesc") {
-    thisFiltered = [...filtered].sort((a, b) => b.member.localeCompare(a.member));
+    thisFiltered.sort((a, b) => b.member.localeCompare(a.member));
   } else if (sortVal === "arrAsc") {
-    thisFiltered = [...filtered].sort((a, b) => new Date(a.arrival) - new Date(b.arrival));
+    thisFiltered.sort((a, b) => new Date(a.arrival) - new Date(b.arrival));
   } else if (sortVal === "arrDesc") {
-    thisFiltered = [...filtered].sort((a, b) => new Date(b.arrival) - new Date(a.arrival));
-  } else {
-    thisFiltered = [...filtered];
+    thisFiltered.sort((a, b) => new Date(b.arrival) - new Date(a.arrival));
   }
 
-  setFilteredList(thisFiltered); // ✅ fixed
+  setFilteredList(thisFiltered);
 };
 
 
 return (
 <>
 <section>
-    <ReservationFilter reservations={reservations} onFilter={handleFilter}/>
+    <ReservationFilter 
+    reservations={reservations} 
+    onFilter={handleFilter} 
+    showAll={showAll} 
+    setShowAll={setShowAll}/>
 </section>
     <table>
         <thead>

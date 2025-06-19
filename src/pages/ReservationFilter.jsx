@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ReservationFilter({ reservations, onFilter }) {
+function ReservationFilter({ reservations, onFilter, showAll, setShowAll }) {
   const [filterObj, setFilterObj] = useState({
     memFilter: "all",
     roomFilter: "all",
@@ -28,12 +28,12 @@ function ReservationFilter({ reservations, onFilter }) {
 
 
 
-  const handleClear = () => {
-    const reset = { memFilter: "all", roomFilter: "all", sortVal: "all" };
-
-    setFilterObj(reset);
-    onFilter(reset);
-  };
+const handleClear = () => {
+  const reset = { memFilter: "all", roomFilter: "all", sortVal: "all" };
+  setFilterObj(reset);
+  onFilter(reset);
+  setShowAll(false); 
+};
 
   return (
     <>
@@ -57,6 +57,14 @@ function ReservationFilter({ reservations, onFilter }) {
         <option value="arrAsc">Arrival ↑ [asc]</option>
           <option value="arrDesc">Arrival ↓ [desc]</option>
       </select>
+      <label>
+  <input
+    type="checkbox"
+    checked={showAll}
+    onChange={() => setShowAll(prev => !prev)}
+  />
+  Show all reservations
+</label>
       <button type="button" onClick={handleClear}>Clear Filter/Sort</button>
     </>
   );
