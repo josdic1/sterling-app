@@ -4,12 +4,14 @@ import MemberContext from "../contexts/MemberContext"
 import MemberCard from "../components/MemberCard"
 
 function MemberList() {
-    const { members } = useContext(MemberContext)
+    const { members, handleDelete } = useContext(MemberContext)
 
 const navigate = useNavigate()
     
 const memberList = members.map(m => (
-    <MemberCard key={m.id} member={m} />
+    <MemberCard 
+        key={m.id} member={m} 
+        onDelete={handleDelete}/>
 ))
 
 return (

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function MemberCard({ member }) {
+function MemberCard({ member, onDelete }) {
 
 const navigate = useNavigate()
 
@@ -11,8 +11,11 @@ const navigate = useNavigate()
                 navigate(`/members/view/${id}`)
                 break
             case "edit":
+                navigate(`/members/edit/${id}`)
                 break
             case "delete":
+                onDelete(id)
+                navigate(`/members`)
                 break
             default:
                 break
