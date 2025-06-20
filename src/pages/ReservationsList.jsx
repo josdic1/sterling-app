@@ -26,7 +26,7 @@ useEffect(() => {
 }, [reservations, showAll]);
 
 const reservationData = filteredList.map(res => (
-    <ReservationCard key={res.id} reservation={res} handleDelete={handleDelete} />
+    <ReservationCard key={res.id} reservation={res} onDelete={handleDelete} />
 ))
 
 const handleFilter = (obj) => {

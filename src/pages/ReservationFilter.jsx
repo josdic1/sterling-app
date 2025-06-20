@@ -37,6 +37,7 @@ const handleClear = () => {
 
   return (
     <>
+    <div className="filter-bar">
       <select name="memFilter" value={filterObj.memFilter} onChange={handleChange}>
         <option value="all">All Members</option>
         {members.map(member => (
@@ -57,6 +58,7 @@ const handleClear = () => {
         <option value="arrAsc">Arrival ↑ [asc]</option>
           <option value="arrDesc">Arrival ↓ [desc]</option>
       </select>
+      </div>
       <label>
   <input
     type="checkbox"
@@ -64,7 +66,7 @@ const handleClear = () => {
     onChange={() => setShowAll(prev => !prev)}
   />
   Show all reservations
-</label>
+</label><br></br>
       <button type="button" onClick={handleClear}>Clear Filter/Sort</button>
     </>
   );

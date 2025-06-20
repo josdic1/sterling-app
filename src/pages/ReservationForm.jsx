@@ -24,7 +24,7 @@ function ReservationForm() {
     const navigate = useNavigate()
         
 useEffect(() => {
-  const match = members.find(m => m.member === formData.member);
+  const match = members.find(m => m.member.toLowerCase() === formData.member.toLowerCase());
   if (match) {
     setFormData(prev => ({
       ...prev,
@@ -38,13 +38,24 @@ useEffect(() => {
   }
 }, [formData.member, members]);
 
-    const onFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [ name ]: value
-        }));
-    };
+const roundToNearest15 = (dateStr) => {
+  const date = new Date(dateStr);
+  const ms = 1000 * 60 * 15; // 15 min in ms
+  const rounded = new Date(Math.round(date.getTime() / ms) * ms);
+  return rounded.toISOString().slice(0, 16);
+};
+
+const onFormChange = (e) => {
+  const { name, value } = e.target;
+  const newVal = name === "arrival"
+    ? roundToNearest15(value)
+    : value;
+
+  setFormData(prev => ({
+    ...prev,
+    [name]: newVal
+  }));
+};
 
  const addInput = () => {
   setGuestList(prev => [...prev, ""]);
@@ -52,6 +63,16 @@ useEffect(() => {
 const removeInput = () => {
   setGuestList(prev => prev.slice(0, -1));
 };
+function getRoundedNow() {
+  const now = new Date();
+  now.setSeconds(0);
+  now.setMilliseconds(0);
+  const minutes = now.getMinutes();
+  const rounded = Math.ceil(minutes / 15) * 15;
+  now.setMinutes(rounded >= 60 ? 0 : rounded);
+  if (rounded >= 60) now.setHours(now.getHours() + 1);
+  return now.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:mm"
+}
     
     function onSubmit(e) {
         e.preventDefault()

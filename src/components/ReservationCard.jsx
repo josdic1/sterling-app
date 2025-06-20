@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function ReservationCard({ reservation, onDeleteClick }) {
+function ReservationCard({ reservation, onDelete }) {
 
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ function ReservationCard({ reservation, onDeleteClick }) {
                 navigate(`/reservations/edit/${id}`)
                 break;
             case "delete":
-                onDeleteClick(id)
+                onDelete(id)
                 break;
             default:
                 break;

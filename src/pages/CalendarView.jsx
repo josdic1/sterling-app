@@ -42,7 +42,7 @@ function CalendarView({ reservations }) {
             <ul>
               {todaysReservations.map(r => (
                 <li key={r.id}>
-                  <strong>{r.member}</strong> – {r.guests} guests, {r.room.toUpperCase()}
+                  <strong>{r.member}</strong> – {r.guests} guests , {r.room.toUpperCase()}
                 </li>
               ))}
             </ul>

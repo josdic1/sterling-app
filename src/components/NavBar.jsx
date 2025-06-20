@@ -1,43 +1,57 @@
-import { NavLink, useNavigate } from "react-router-dom"
-import { useContext } from "react"
-import CurrentUserContext from "../contexts/CurrentUserContext"
-import viteLogo from '/vite.svg'
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import ForkKnifeLogo from "./ForkKnifeLogo";
+import { FiCalendar } from "react-icons/fi";
 
 function NavBar() {
-    const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
+  const { currentUser, setCurrentUser, isHidden, setIsHidden } = useContext(CurrentUserContext);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const onLogout = () => {
+    setCurrentUser({ id: "", uid: "", member: "", password: "", role: "" });
+    navigate("/login");
+  };
 
-    const currUser = currentUser?.member
-const currRole = currentUser?.role
+  const isLoggedIn = !!currentUser?.id;
 
-    const onLogOut = () => {
-        const logout = {
-        id: "",
-      member: "",
-      login: "",
-      password: "",
-      role: ""
-        }
-        setCurrentUser(logout)
-        navigate('/login')
-    }
+  return (
+    <header className="nav-header">
+      <NavLink to="/welcome">
+        <ForkKnifeLogo />
+      </NavLink>
 
+      {isLoggedIn && (
+        <section className="dashboard-header" style={{ display: "flex", gap: "1rem" }}>
+          <NavLink to="/reservations/new" className="book-button">
+            ＋ Book New
+          </NavLink>
+          <button
+            onClick={() => setIsHidden(!isHidden)}
+            className={`calendar-button ${isHidden ? "active" : ""}`}
+            title="Toggle calendar view"
+          >
+            <FiCalendar size={20} />
+          </button>
+        </section>
+      )}
 
-    const navDisplay = 
-    <nav>
-    <NavLink to="/welcome"> {`${currUser}`} | </NavLink>
-        <NavLink to="/reservations/new"> New Reservation |</NavLink>
-        {currRole === "admin" ? <NavLink to="/members"> Members |</NavLink> : ""}
-         <NavLink onClick={onLogOut}> Logout </NavLink>
-</nav>
+      {isLoggedIn ? (
+        <div className="nav-user">
+          <nav className="nav-links">
+            {currentUser.role === "admin" && (
+              <NavLink to="/members">Members</NavLink>
+            )}
+            <button onClick={onLogout}>
+              {`Logout (${currentUser.member})`}
+            </button>
+          </nav>
+        </div>
+      ) : (
+        <span>Please log in</span>
+      )}
+    </header>
+  );
+}
 
-
-
-return (
-<>
-{currUser ? navDisplay : <NavLink to='/login'> Login </NavLink> }
-</>
-)}
-
-export default NavBar
+export default NavBar;

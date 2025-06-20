@@ -1,31 +1,35 @@
-import { useEffect, useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import CalendarView from "./CalendarView"
-import CurrentUserContext from "../contexts/CurrentUserContext"
-import ReservationContext from "../contexts/ReservationContext"
-import ReservationsList from "./ReservationsList"
-
+import { useNavigate } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import CalendarView from "./CalendarView";
+import ReservationsList from "./ReservationsList";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import ReservationContext from "../contexts/ReservationContext";
 
 
 function LandingPage() {
-  const { currentUser } = useContext(CurrentUserContext)
-  const { reservations } = useContext(ReservationContext)
+  const { currentUser, isHidden } = useContext(CurrentUserContext);
+  const { reservations } = useContext(ReservationContext);
+
   const navigate = useNavigate()
 
+  const currRole = currentUser?.role;
+  const userReservations = reservations.filter(r => r.mid === currentUser?.id);
+  const data = currRole === "admin" ? reservations : userReservations;
+
     useEffect(() => {
-       !currentUser?.id ? navigate('/login') : ""
-    },[currentUser])
-
-    const currRole = currentUser?.role
-
-const userReservations = reservations.filter(r => r.mid === currentUser?.id)
+      !currentUser?.id ? navigate('/Login') : ''
+  },[])
 
   return (
     <>
-            <ReservationsList reservations={currRole === "admin" ? reservations :userReservations} />
-      <CalendarView reservations={currRole === "admin" ? reservations :userReservations} />
+
+
+<section className="dashboard">
+  {!isHidden ? <CalendarView reservations={data} /> : ""}
+  <ReservationsList reservations={data} />
+</section>
     </>
-  )
+  );
 }
 
-export default LandingPage
+export default LandingPage;
