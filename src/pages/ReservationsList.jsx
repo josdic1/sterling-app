@@ -3,7 +3,7 @@ import ReservationContext from "../contexts/ReservationContext"
 import ReservationCard from "../components/ReservationCard"
 import ReservationFilter from "./ReservationFilter"
 
-function ReservationsList() {
+function ReservationsList({ filterReservations }) {
     const { reservations, handleDelete } = useContext(ReservationContext)
 
 const [filteredList, setFilteredList ] = useState([])
@@ -25,9 +25,7 @@ useEffect(() => {
   handleFilter(activeFilter);
 }, [reservations, showAll]);
 
-const reservationData = filteredList.map(res => (
-    <ReservationCard key={res.id} reservation={res} handleDelete={handleDelete} />
-))
+const reservationData = filterReservations(reservations)
 
 const handleFilter = (obj) => {
   setActiveFilter(obj); 
@@ -80,7 +78,9 @@ return (
             </tr>
         </thead>
         <tbody>
-{reservationData}
+  {reservationData.map(res => (
+    <ReservationCard key={res.id} reservation={res} handleDelete={handleDelete} />
+  ))}
         </tbody>
     </table>
 </>)}

@@ -4,37 +4,31 @@ import { useState, useEffect } from 'react';
 
 function CurrentUserProvider({children}) {
 
-      const [ currentUser, setCurrentUser ] = useState({
-        id: "",
-        uid: "",
-        member: "",
-        password: ""
-      })  
+      const LOCAL_KEY = 'sterling-user'
 
- const loggedIn = currentUser?.id ? true : false
+const [currentUser, setCurrentUser] = useState(() => {
+  const saved = localStorage.getItem(LOCAL_KEY)
+  return saved ? JSON.parse(saved) : {
+    id: "",
+    uid: "",
+    member: "",
+    password: "",
+    role: ""
+  }
+})
 
- useEffect(() => {
-    fetchCurrentUser()
- },[])
+useEffect(() => {
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(currentUser))
+}, [currentUser])
 
-async function fetchCurrentUser() {
-    try {
-        const res = await fetch (`http://localhost:3000/currentUser`)
-        if(!res.ok) {
-            throw new Error("Failed to get a response")
-        }
-        const data = await res.json()
-        setCurrentUser(data)
-    }catch (error) {console.error("❌ Caught error:", error);}
-}
+const loggedIn = !!currentUser?.id
+
 
 
 return (
 <>
-<CurrentUserContext.Provider
-    value={{ loggedIn, currentUser, setCurrentUser }}
->
-    {children}
+<CurrentUserContext.Provider value={{ loggedIn, currentUser, setCurrentUser }}>
+  {children}
 </CurrentUserContext.Provider>
 </>
 )}

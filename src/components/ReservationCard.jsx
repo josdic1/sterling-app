@@ -33,7 +33,7 @@ return (
   minute: '2-digit'
 })}</td>
 <td>{reservation.guests}</td>
-<td>{reservation.room}</td>
+<td>{reservation.room.toUpperCase()}</td>
 
 <td>
   <button type="button" onClick={onClick} id={reservation.id} name="view" className="btn red">

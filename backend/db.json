@@ -6,7 +6,7 @@
       "member": "Jon",
       "guests": 2,
       "notes": "Anniversary",
-      "room": "room-a",
+      "room": "a",
       "arrival": "2025-05-30T10:00",
       "guest_array": [
         "Dorrie"
@@ -18,7 +18,7 @@
       "member": "Jon",
       "guests": 3,
       "notes": "no shellfish",
-      "room": "room-b",
+      "room": "b",
       "arrival": "2025-07-18T12:00",
       "guest_array": [
         "Gary",
@@ -31,7 +31,7 @@
       "member": "Josh",
       "guests": 2,
       "notes": "Toddler",
-      "room": "room-e",
+      "room": "e",
       "arrival": "7/23/2025, 11:30:00 AM",
       "guest_array": [
         "Demi"
@@ -43,7 +43,7 @@
       "member": "Dorrie",
       "guests": 4,
       "notes": "VIP",
-      "room": "room-a",
+      "room": "a",
       "arrival": "6/27/2025, 12:00:00 PM",
       "guest_array": [
         "Maggie",
@@ -57,7 +57,7 @@
       "member": "Demi",
       "guests": 5,
       "notes": "Kosher",
-      "room": "room-a",
+      "room": "a",
       "arrival": "7/18/2025, 4:15:00 PM",
       "guest_array": [
         "Josh",
@@ -72,26 +72,36 @@
       "id": "79dd",
       "member": "Jon",
       "login": "jon",
-      "password": ""
+      "password": "",
+      "role": "user"
     },
     {
       "id": "aa0a",
       "member": "Josh",
       "login": "josh",
-      "password": ""
+      "password": "",
+      "role": "user"
     },
     {
       "id": "1b54",
       "member": "Dorrie",
       "login": "dorrie",
-      "password": ""
+      "password": "",
+      "role": "user"
     },
     {
       "id": "109d",
       "member": "Demi",
       "login": "demi",
-      "password": "demi"
+      "password": "demi",
+      "role": "user"
+    },
+    {
+      "id": "admn",
+      "member": "admin",
+      "login": "admin",
+      "password": "",
+      "role": "admin"
     }
-  ],
-  "currentUser": {}
+  ]
 }

@@ -93,11 +93,11 @@ const onCancel = () => {
             <label htmlFor="room"> ROOM </label>
             <select name="room" id="room" onChange={onFormChange} value={formData.room}>
                <option disabled value=""> Select room.... </option> 
-            <option value="room-a"> Room A </option>
-              <option value="room-b"> Room B </option>
-                <option value="room-c"> Room C </option>
-                  <option value="room-d"> Room D </option>
-                    <option value="room-e"> Room E </option>
+            <option value="a"> A </option>
+              <option value="b"> B </option>
+                <option value="c"> C </option>
+                  <option value="d"> D </option>
+                    <option value="e"> E </option>
             </select>
 
                 <label htmlFor="arrival"> ARRIVAL </label>
