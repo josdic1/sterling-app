@@ -7,7 +7,7 @@ import ReservationContext from "../contexts/ReservationContext";
 
 
 function LandingPage() {
-  const { currentUser, isHidden } = useContext(CurrentUserContext);
+  const { currentUser, calendarIsHidden } = useContext(CurrentUserContext);
   const { reservations } = useContext(ReservationContext);
 
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ function LandingPage() {
 
 
 <section className="dashboard">
-  {!isHidden ? <CalendarView reservations={data} /> : ""}
+  {!calendarIsHidden ? <CalendarView reservations={data} /> : ""}
   <ReservationsList reservations={data} />
 </section>
     </>

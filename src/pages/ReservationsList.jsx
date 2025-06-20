@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import ReservationContext from "../contexts/ReservationContext"
+import CurrentUserContext from "../contexts/CurrentUserContext"
 import ReservationCard from "../components/ReservationCard"
 import ReservationFilter from "./ReservationFilter"
 
 function ReservationsList({reservations}) {
     const { handleDelete } = useContext(ReservationContext)
+  const { filterIsHidden } = useContext(CurrentUserContext)
 
 const [filteredList, setFilteredList ] = useState([])
 const [showAll, setShowAll] = useState(false);
@@ -13,21 +15,15 @@ const [activeFilter, setActiveFilter] = useState({
   roomFilter: "all",
   sortVal: "all"
 });
-useEffect(() => {
-  handleFilter({
-    memFilter: "all",
-    roomFilter: "all",
-    sortVal: "all"
-  });
-}, [reservations, showAll]);
 
 useEffect(() => {
   handleFilter(activeFilter);
-}, [reservations, showAll]);
+}, [reservations, showAll, activeFilter]);
 
 const reservationData = filteredList.map(res => (
     <ReservationCard key={res.id} reservation={res} onDelete={handleDelete} />
 ))
+const hiddenCount = reservations.filter(r => new Date(r.arrival) < new Date()).length;
 
 const handleFilter = (obj) => {
   setActiveFilter(obj); 
@@ -60,13 +56,19 @@ const handleFilter = (obj) => {
 
 return (
 <>
-<section>
+{!filterIsHidden ? <section>
     <ReservationFilter 
     reservations={reservations} 
     onFilter={handleFilter} 
     showAll={showAll} 
     setShowAll={setShowAll}/>
-</section>
+    {!showAll && hiddenCount > 0 && (
+  <p style={{ fontSize: "0.9rem", color: "#888", margin: "0.5rem 0 1rem" }}>
+    ({hiddenCount} past reservations hidden)
+  </p>
+)}
+</section> : ""}
+
     <table>
         <thead>
             <tr>

@@ -883,7 +883,32 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--card-bg);
+  background-color: #f4f7f3;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.calendar-button:hover {
+  background-color: #cbd5c0;
+  color: white;
+  transform: scale(1.05);
+}
+
+.calendar-button.active {
+  background-color: #5a6e6c;
+  color: white;
+  box-shadow: 0 0 0 2px #5a6e6c;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e6db; /* slightly different tone from calendar */
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 0.5rem;
@@ -892,16 +917,16 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-.calendar-button:hover {
-  background-color: var(--accent);
+.filter-button:hover {
+  background-color: #cbd5c0;
   color: white;
   transform: scale(1.05);
 }
 
-.calendar-button.active {
-  background-color: var(--accent-hover);
+.filter-button.active {
+  background-color: #5a6e6c;
   color: white;
-  box-shadow: 0 0 0 2px var(--accent);
+  box-shadow: 0 0 0 2px #5a6e6c;
 }
 
 .nav-header {

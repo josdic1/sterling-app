@@ -16,7 +16,8 @@ const [currentUser, setCurrentUser] = useState(() => {
     role: ""
   }
 })
-const [ isHidden, setIsHidden ] = useState(false)
+const [ calendarIsHidden, setCalendarIsHidden ] = useState(true)
+const [ filterIsHidden, setFilterIsHidden ] = useState(true)
 
 useEffect(() => {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(currentUser))
@@ -28,7 +29,7 @@ const loggedIn = !!currentUser?.id
 
 return (
 <>
-<CurrentUserContext.Provider value={{ loggedIn, currentUser, setCurrentUser, isHidden, setIsHidden }}>
+<CurrentUserContext.Provider value={{ loggedIn, currentUser, setCurrentUser, calendarIsHidden, setCalendarIsHidden, filterIsHidden, setFilterIsHidden }}>
   {children}
 </CurrentUserContext.Provider>
 </>

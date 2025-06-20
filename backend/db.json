@@ -78,6 +78,19 @@
         "Pat",
         "Rick M."
       ]
+    },
+    {
+      "id": "9103",
+      "mid": "1b54",
+      "member": "dorrie",
+      "guests": 3,
+      "notes": "comp'd",
+      "room": "c",
+      "arrival": "2025-07-09T22:00",
+      "guest_array": [
+        "Demi",
+        "Jill"
+      ]
     }
   ],
   "members": [

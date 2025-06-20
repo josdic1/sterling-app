@@ -2,10 +2,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import ForkKnifeLogo from "./ForkKnifeLogo";
-import { FiCalendar } from "react-icons/fi";
+import { FiCalendar, FiFilter } from "react-icons/fi";
 
 function NavBar() {
-  const { currentUser, setCurrentUser, isHidden, setIsHidden } = useContext(CurrentUserContext);
+  const { currentUser, setCurrentUser, filterIsHidden, setFilterIsHidden, calendarIsHidden, setCalendarIsHidden } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const onLogout = () => {
@@ -27,11 +27,18 @@ function NavBar() {
             ＋ Book New
           </NavLink>
           <button
-            onClick={() => setIsHidden(!isHidden)}
-            className={`calendar-button ${isHidden ? "active" : ""}`}
+            onClick={() => setCalendarIsHidden(!calendarIsHidden)}
+            className={`calendar-button ${calendarIsHidden ? "active" : ""}`}
             title="Toggle calendar view"
           >
             <FiCalendar size={20} />
+          </button>
+               <button
+            onClick={() => setFilterIsHidden(!filterIsHidden)}
+            className={`filter-button ${filterIsHidden ? "active" : ""}`}
+            title="Toggle filter view"
+          >
+            <FiFilter size={20} />
           </button>
         </section>
       )}
