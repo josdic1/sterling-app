@@ -5,7 +5,7 @@ import MemberContext from "../contexts/MemberContext"
 
 function Login() {
 
-    const { members } = useContext(MemberContext)
+    const { members = [] } = useContext(MemberContext);
     const { setCurrentUser } = useContext(CurrentUserContext)
 
     const [ formData, setFormData ] = useState({
@@ -26,12 +26,18 @@ function Login() {
 
     const isLoggedIn = match?.id ? true : false
 
-    useEffect(() => {
-        const userMatch = members.find(m => (
-            m.member.toLowerCase() === formData.member.toLowerCase()
-        ))
-       if (userMatch) setMatch(userMatch)
-    },[members, formData.member])
+useEffect(() => {
+  if (!formData.member) {
+    setMatch({ id: "", member: "", login: "", password: "", role: "" });
+    return;
+  }
+  const userMatch = members.find(m => (
+    m.member.toLowerCase() === formData.member.toLowerCase()
+  ));
+  console.log("Matching user:", userMatch);
+  if (userMatch) setMatch(userMatch);
+  else setMatch({ id: "", member: "", login: "", password: "", role: "" });
+}, [members, formData.member]);
 
     const onFormChange = (e) => {
         const { name, value } = e.target
