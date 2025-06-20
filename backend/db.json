@@ -91,6 +91,19 @@
         "Demi",
         "Jill"
       ]
+    },
+    {
+      "id": "aada",
+      "mid": "aa0a",
+      "member": "josh",
+      "guests": 3,
+      "notes": "Kosher",
+      "room": "a",
+      "arrival": "2025-07-03T22:15",
+      "guest_array": [
+        "Abba",
+        "Demi"
+      ]
     }
   ],
   "members": [

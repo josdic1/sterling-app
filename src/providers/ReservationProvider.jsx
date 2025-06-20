@@ -12,7 +12,7 @@ useEffect(() => {
 
 async function fetchReservations() {
     try {
-        const res = await fetch (`http://localhost:3000/reservations`)
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/reservations`)
         if(!res.ok) {
             throw new Error("Failed to get a response")
         }
@@ -23,7 +23,7 @@ async function fetchReservations() {
 
 async function handleNew(newRes) {
     try {
-        const res = await fetch(`http://localhost:3000/reservations/`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/reservations`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ async function handleNew(newRes) {
 
 async function handleEdit(updatedRes) {
     try {
-         const res = await fetch(`http://localhost:3000/reservations/${updatedRes.id}`, {
+         const res = await fetch(`${import.meta.env.VITE_API_URL}/reservations/${updatedRes.id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ async function handleEdit(updatedRes) {
 
 async function handleDelete(resId) {
     try {
-                const res = await fetch(`http://localhost:3000/reservations/${resId}`, {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/reservations/${resId}`, {
                     method: "DELETE"
         })
         if(!res.ok) {

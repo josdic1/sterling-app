@@ -20,9 +20,17 @@ const [ calendarIsHidden, setCalendarIsHidden ] = useState(true)
 const [ filterIsHidden, setFilterIsHidden ] = useState(true)
 
 useEffect(() => {
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(currentUser))
-}, [currentUser])
-
+  if (!currentUser?.id) {
+    const tempUser = {
+      id: "m001", // or whatever user you want pre-logged-in
+      uid: "allen123",
+      member: "Allen",
+      password: "secret", // optional
+      role: "member" // optional
+    }
+    setCurrentUser(tempUser)
+  }
+}, [])
 const loggedIn = !!currentUser?.id
 
 

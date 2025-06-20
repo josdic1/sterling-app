@@ -12,7 +12,7 @@ function MemberProvider({children}) {
 
 async function fetchMembers() {
     try {
-        const res = await fetch (`http://localhost:3000/members`)
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/members`)
         if(!res.ok) {
             throw new Error("Failed to get a response")
         }
@@ -23,7 +23,7 @@ async function fetchMembers() {
 
 async function handleNew(newMem) {
     try {
-        const r = await fetch(`http://localhost:3000/members`, {
+        const r = await fetch(`${import.meta.env.VITE_API_URL}/members`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ async function handleNew(newMem) {
 
 async function handleDelete(memId) {
     try {
-      const r = await fetch(`http://localhost:3000/members/${memId}`, {
+      const r = await fetch(`${import.meta.env.VITE_API_URL}/members/${memId}`, {
             method: 'DELETE'
         })
         if(!r.ok) {
@@ -55,7 +55,7 @@ async function handleDelete(memId) {
 
 async function handleEdit(mem) {
     try {
-        const r = await fetch(`http://localhost:3000/members/${mem.id}`, {
+        const r = await fetch(`${import.meta.env.VITE_API_URL}/members/${mem.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
