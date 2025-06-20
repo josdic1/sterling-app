@@ -73,7 +73,7 @@ function onSubmit(e) {
 
 const onCancel = () => {
     onClear()
-    navigate('/reservations')
+    navigate('/welcome')
     }
 
     return (

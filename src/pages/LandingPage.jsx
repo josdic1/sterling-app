@@ -1,9 +1,10 @@
 import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import CalendarView from "./CalendarView"
 import CurrentUserContext from "../contexts/CurrentUserContext"
 import ReservationContext from "../contexts/ReservationContext"
 import ReservationsList from "./ReservationsList"
-import CalendarView from "./CalendarView"
+
 
 
 function LandingPage() {
@@ -15,21 +16,16 @@ function LandingPage() {
        !currentUser?.id ? navigate('/login') : ""
     },[currentUser])
 
+    const currRole = currentUser?.role
 
-      const filterReservations = (reservationData) => {
-        return reservationData.filter(r => r.member === currentUser.member)
+const userReservations = reservations.filter(r => r.mid === currentUser?.id)
 
-        
+  return (
+    <>
+            <ReservationsList reservations={currRole === "admin" ? reservations :userReservations} />
+      <CalendarView reservations={currRole === "admin" ? reservations :userReservations} />
+    </>
+  )
 }
-
-
-
-return (
-<>
-<CalendarView reservationData={filterReservations(reservations)} />
-  <ReservationsList filterReservations={filterReservations}/>
-
-</>
-)}
 
 export default LandingPage

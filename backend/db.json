@@ -32,7 +32,7 @@
       "guests": 2,
       "notes": "Toddler",
       "room": "e",
-      "arrival": "7/23/2025, 11:30:00 AM",
+      "arrival": "2025-07-23T11:30",
       "guest_array": [
         "Demi"
       ]
@@ -44,7 +44,7 @@
       "guests": 4,
       "notes": "VIP",
       "room": "a",
-      "arrival": "6/27/2025, 12:00:00 PM",
+      "arrival": "2025-06-27T12:00",
       "guest_array": [
         "Maggie",
         "Sarah",
@@ -58,7 +58,7 @@
       "guests": 5,
       "notes": "Kosher",
       "room": "a",
-      "arrival": "7/18/2025, 4:15:00 PM",
+      "arrival": "2025-07-18T16:15",
       "guest_array": [
         "Josh",
         "Dorrie",

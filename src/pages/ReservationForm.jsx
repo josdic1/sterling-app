@@ -61,7 +61,7 @@ const removeInput = () => {
         guests: guestList.length + 1,
         notes: formData.notes || "",
         room: formData.room,
-        arrival: new Date(formData.arrival).toLocaleString(),
+        arrival: new Date(formData.arrival).toISOString().slice(0, 16),
         guest_array: guestList
         }
         handleNew(newRes)
@@ -83,7 +83,7 @@ const removeInput = () => {
 
 const onCancel = () => {
     onClear()
-    navigate('/reservations')
+    navigate('/welcome')
     }
 
     return (
