@@ -10,7 +10,7 @@ function CurrentUserProvider({ children }) {
   });
 
   const [calendarIsHidden, setCalendarIsHidden] = useState(true);
-  const [filterIsHidden, setFilterIsHidden] = useState(true);
+  const [filterIsHidden, setFilterIsHidden] = useState(false);
 
   useEffect(() => {
     if (currentUser) {

@@ -32,7 +32,9 @@ useEffect(() => {
     return;
   }
   const userMatch = members.find(m => (
-    m.member.toLowerCase() === formData.member.toLowerCase()
+typeof m.member === "string" &&
+typeof formData.member === "string" &&
+m.member.toLowerCase() === formData.member.toLowerCase()
   ));
   console.log("Matching user:", userMatch);
   if (userMatch) setMatch(userMatch);

@@ -19,7 +19,7 @@
       "guests": 3,
       "notes": "no shellfish",
       "room": "b",
-      "arrival": "2025-07-18T12:00",
+      "arrival": "2025-04-18T12:00",
       "guest_array": [
         "Gary",
         "Delano"
@@ -32,7 +32,7 @@
       "guests": 2,
       "notes": "Toddler",
       "room": "e",
-      "arrival": "2025-07-23T11:30",
+      "arrival": "2025-03-23T11:30",
       "guest_array": [
         "Demi"
       ]
@@ -44,7 +44,7 @@
       "guests": 4,
       "notes": "VIP",
       "room": "a",
-      "arrival": "2025-06-27T12:00",
+      "arrival": "2025-04-27T12:00",
       "guest_array": [
         "Maggie",
         "Sarah",
@@ -58,7 +58,7 @@
       "guests": 5,
       "notes": "Kosher",
       "room": "a",
-      "arrival": "2025-07-18T16:15",
+      "arrival": "2025-06-18T16:15",
       "guest_array": [
         "Josh",
         "Dorrie",
@@ -73,7 +73,7 @@
       "guests": 3,
       "notes": "VIP",
       "room": "c",
-      "arrival": "2025-07-09T16:30",
+      "arrival": "2025-06-09T16:30",
       "guest_array": [
         "Pat",
         "Rick M."
@@ -86,7 +86,7 @@
       "guests": 3,
       "notes": "comp'd",
       "room": "c",
-      "arrival": "2025-07-09T22:00",
+      "arrival": "2025-06-09T22:00",
       "guest_array": [
         "Demi",
         "Jill"
@@ -99,18 +99,33 @@
       "guests": 3,
       "notes": "Kosher",
       "room": "a",
-      "arrival": "2025-07-03T22:15",
+      "arrival": "2025-06-03T22:15",
       "guest_array": [
         "Abba",
         "Demi"
+      ]
+    },
+    {
+      "id": "f7af",
+      "mid": "fdc2",
+      "member": "abba",
+      "guests": 5,
+      "notes": "4th of July dinner",
+      "room": "b",
+      "arrival": "2024-07-04T02:15",
+      "guest_array": [
+        "Wesley",
+        "Sandy",
+        "Molly",
+        "Parker"
       ]
     }
   ],
   "members": [
     {
       "id": "79dd",
-      "member": "Jon",
-      "login": "jon",
+      "member": "Wesley",
+      "login": "wesley",
       "password": "",
       "role": "user"
     },
@@ -141,6 +156,20 @@
       "login": "admin",
       "password": "",
       "role": "admin"
+    },
+    {
+      "id": "8f4e",
+      "member": "Jill",
+      "role": "",
+      "login": "jill",
+      "password": "jill"
+    },
+    {
+      "id": "fdc2",
+      "member": "Abba",
+      "role": "user",
+      "login": "abba",
+      "password": "abba"
     }
   ]
 }

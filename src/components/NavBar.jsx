@@ -24,7 +24,7 @@ function NavBar() {
       {isLoggedIn && (
         <section className="dashboard-header" style={{ display: "flex", gap: "1rem" }}>
           <NavLink to="/reservations/new" className="book-button">
-            ＋ Book New
+            ＋ Reservation
           </NavLink>
           <button
             onClick={() => setCalendarIsHidden(!calendarIsHidden)}

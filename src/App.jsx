@@ -5,21 +5,17 @@ import NavBar from './components/NavBar'
 import './App.css'
 
 function App() {
-
   return (
-
-    <>
-      <header>
-      <NavBar />
-      </header>
-          <main>
-          <MemberProvider>
-<ReservationProvider>
-  <Outlet />
-</ReservationProvider>
-</MemberProvider>
-      </main>
-    </>
+    <MemberProvider>
+      <ReservationProvider>
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          <Outlet />
+        </main>
+      </ReservationProvider>
+    </MemberProvider>
   )
 }
 

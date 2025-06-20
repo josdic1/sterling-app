@@ -14,7 +14,6 @@ import ReservationForm from "./pages/ReservationForm.jsx"
 import ReservationItem from "./pages/ReservationItem.jsx"
 import ReservationsList from "./pages/ReservationsList.jsx"
 
-
 const routes = [
   { 
     path: "/", 
@@ -38,7 +37,7 @@ const routes = [
       { path: "/members/view/:id", element: <MemberItem /> },
       { path: "/calendar", element: <CalendarView /> },
       { path: "/welcome", element: <LandingPage /> },
-      { path: "/login", element: <Login /> },
+      { path: "/login", element: <Login /> }
 
   ] }
 ]
