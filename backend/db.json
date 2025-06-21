@@ -119,6 +119,18 @@
         "Molly",
         "Parker"
       ]
+    },
+    {
+      "id": "2b01",
+      "mid": "aa0a",
+      "member": "josh",
+      "guests": 2,
+      "notes": "4th of July",
+      "room": "c",
+      "arrival": "2025-07-04T05:15",
+      "guest_array": [
+        "Rosie"
+      ]
     }
   ],
   "members": [
